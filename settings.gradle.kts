@@ -1,1 +1,1 @@
-rootProject.name = "robocode-robot-template"
+rootProject.name = "midnight"

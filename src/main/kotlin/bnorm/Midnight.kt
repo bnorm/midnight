@@ -1,24 +1,26 @@
-package template
+package bnorm
 
 import robocode.AdvancedRobot
+import robocode.DeathEvent
 import robocode.RobotDeathEvent
 import robocode.ScannedRobotEvent
+import robocode.WinEvent
 import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.geom.Point2D
 import kotlin.math.cos
 import kotlin.math.sin
 
-class TemplateRobot : AdvancedRobot() {
+class Midnight : AdvancedRobot() {
     companion object {
         private val otherRobots = mutableMapOf<String, Point2D>()
     }
 
     override fun run() {
         // Change you robot colors!
-        setBodyColor(Color(0xf6, 0x9a, 0x2b))
-        setGunColor(Color(0x04, 0x62, 0xaf))
-        setRadarColor(Color(0xff, 0xff, 0xff))
+        setBodyColor(Color.black)
+        setGunColor(Color.white)
+        setRadarColor(Color.black)
 
         while (true) {
             // Move parts of you robot
@@ -56,8 +58,16 @@ class TemplateRobot : AdvancedRobot() {
         otherRobots.remove(e.name)
     }
 
+    override fun onWin(e: WinEvent) {
+        println("Clean up on Aisle 5.")
+    }
+
+    override fun onDeath(e: DeathEvent) {
+        println("It'll take a lot more than a bullet to the brain, lungs, heart, back and balls to kill Michael Scarn!")
+    }
+
     private fun ScannedRobotEvent.toPoint(): Point2D {
-        val angle = this@TemplateRobot.headingRadians + bearingRadians
+        val angle = this@Midnight.headingRadians + bearingRadians
         return Point2D.Double(x + sin(angle) * distance, y + cos(angle) * distance)
     }
 }

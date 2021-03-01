@@ -40,8 +40,8 @@ tasks.robocodeRun {
 
 robocode {
     robots {
-        register("TemplateRobot") {
-            classPath = "template.TemplateRobot"
+        register("Midnight") {
+            classPath = "bnorm.Midnight"
             version = project.version.toString()
         }
     }
