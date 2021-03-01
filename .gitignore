@@ -1,0 +1,10 @@
+# Gradle
+build/
+.gradle/
+
+# Robocode
+.robocode/
+
+# IntelliJ
+*.iml
+.idea/
